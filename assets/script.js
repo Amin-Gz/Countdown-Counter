@@ -15,6 +15,8 @@ startCounter.addEventListener('click',function(e){
     if (isNaN(seconds)){
         errorElement.textContent = "زمان خود را به درستی وارد کنید";
         errorElement.classList.add("active");
+        successMessage.style.display = "none"
+
         return;
     }
 
@@ -26,17 +28,26 @@ startCounter.addEventListener('click',function(e){
     successMessage.style.display = "none"
 
 
+    let Firstsec = seconds
+    let lastsec = ''
     let timerId = setInterval(()=>{
-        if (seconds <= 1){
+        if(lastsec)timerCircle.classList.remove(lastsec)
+
+        if (seconds <= 0){
             clearInterval(timerId)
             startBox.classList.add('active')
             timerCircle.style.display = 'none'
             inputCounter.value = ''
             loadingMessage.style.display = "none"
             successMessage.style.display = "block"
-
+            return;
         }
+
         seconds -= 1;
+        darsadSec = Math.floor((( Firstsec - seconds ) / Firstsec ) * 100 )
+        lastsec = `p${darsadSec}`
+        console.log(darsadSec)
+        timerCircle.classList.add(`p${darsadSec}`)
         timerNum.textContent = seconds
 
 
