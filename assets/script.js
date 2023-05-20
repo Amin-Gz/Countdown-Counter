@@ -49,7 +49,7 @@ startCounter.addEventListener('click',function(e){
         console.log(darsadSec)
         timerCircle.classList.add(`p${darsadSec}`)
         timerNum.textContent = seconds
-        return 0;
+        
     },1000)
 
 })
