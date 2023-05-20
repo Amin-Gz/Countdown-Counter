@@ -29,7 +29,7 @@ startCounter.addEventListener('click',function(e){
 
 
     let Firstsec = seconds
-    let lastsec = ''
+    let lastsec = 'p100'
     let timerId = setInterval(()=>{
         if(lastsec)timerCircle.classList.remove(lastsec)
 
@@ -44,7 +44,7 @@ startCounter.addEventListener('click',function(e){
         }
 
         seconds -= 1;
-        darsadSec = Math.floor((( Firstsec - seconds ) / Firstsec ) * 100 )
+        darsadSec = 100 - ( Math.floor((( Firstsec - seconds ) / Firstsec ) * 100 ))
         lastsec = `p${darsadSec}`
         console.log(darsadSec)
         timerCircle.classList.add(`p${darsadSec}`)
